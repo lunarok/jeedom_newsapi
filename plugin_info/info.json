@@ -1,0 +1,13 @@
+{
+	"id" : "newsapi",
+	"name" : "NewsAPI",
+	"description" : "Ce plugin permet de récupérer les dernières informations depuis newsapi.org.",
+	"licence" : "AGPL",
+	"author" : "lunarok",
+	"require" : "3.2",
+	"category" : "communication",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
+	"changelog" : "https://lunarok.github.io/jeedom_docs/plugins/newsapi/changelog.html",
+	"documentation" : "https://lunarok.github.io/jeedom_docs/plugins/newsapi/"
+}

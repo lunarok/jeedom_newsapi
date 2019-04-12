@@ -1,0 +1,126 @@
+{
+  "commands": [
+    {
+      "name": "Niveau Ouverture",
+      "type": "info",
+      "subtype": "numeric",
+      "isVisible": 0,
+      "isHistorized": 0,
+      "logicalId": "opening_level"
+    },
+    {
+      "name": "Définir Ouverture",
+      "type": "action",
+      "subtype": "slider",
+      "display": {
+        "generic_type": "FLAP_SLIDER"
+      },
+      "configuration" : {
+        "action" : "move",
+        "minValue" : 0,
+        "maxValue" : 100
+      },
+      "value": "Niveau Ouverture",
+      "isVisible": 1,
+      "logicalId": "opening_level-set"
+    },
+    {
+      "name": "Statut",
+      "type": "info",
+      "subtype": "string",
+      "display": {
+        "generic_type": "FLAP_STATE"
+      },
+      "isVisible": 0,
+      "isHistorized": 0,
+      "logicalId": "status"
+    },
+    {
+      "name": "Définir Statut",
+      "type": "action",
+      "subtype": "select",
+      "display": {
+        "generic_type": "FLAP_STATUS",
+        "forceReturnLineBefore": 1
+      },
+      "configuration" : {
+        "action" : "move",
+        "listValue" : "open|Ouvert;close|Fermé"
+      },
+      "isVisible": 0,
+      "logicalId": "status-set"
+    },
+    {
+      "name": "Ouvrir",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fa fa-arrow-up\"><\/i>",
+        "generic_type": "FLAP_UP",
+        "forceReturnLineBefore": 1
+      },
+      "configuration" : {
+        "action" : "move",
+        "listValue" : "100"
+      },
+      "isVisible": 1,
+      "logicalId": "status-open"
+    },
+    {
+      "name": "Fermer",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fa fa-arrow-down\"><\/i>",
+        "generic_type": "FLAP_DOWN"
+      },
+      "configuration" : {
+        "action" : "move",
+        "value" : "0"
+      },
+      "isVisible": 1,
+      "logicalId": "status-close"
+    },
+    {
+      "name": "Arrêter",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fa fa-stop\"><\/i>",
+        "generic_type": "FLAP_STOP"
+      },
+      "configuration" : {
+        "action" : "stop",
+        "value" : "0"
+      },
+      "isVisible": 1,
+      "logicalId": "status-stop"
+    },
+    {
+      "name": "Identifier",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "generic_type": "DONT"
+      },
+      "configuration" : {
+        "action" : "wink"
+      },
+      "isVisible": 0,
+      "logicalId": "wink"
+    },
+    {
+      "name": "Rafraichir",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "generic_type": "DONT"
+      },
+      "configuration" : {
+        "switch" : "read"
+      },
+      "isVisible": 1,
+      "logicalId": "refresh"
+    }
+  ]
+}
