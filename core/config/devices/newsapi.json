@@ -1,113 +1,40 @@
 {
   "commands": [
     {
-      "name": "Niveau Ouverture",
-      "type": "info",
-      "subtype": "numeric",
-      "isVisible": 0,
-      "isHistorized": 0,
-      "logicalId": "opening_level"
-    },
-    {
-      "name": "Définir Ouverture",
-      "type": "action",
-      "subtype": "slider",
-      "display": {
-        "generic_type": "FLAP_SLIDER"
-      },
-      "configuration" : {
-        "action" : "move",
-        "minValue" : 0,
-        "maxValue" : 100
-      },
-      "value": "Niveau Ouverture",
-      "isVisible": 1,
-      "logicalId": "opening_level-set"
-    },
-    {
-      "name": "Statut",
+      "name": "Source",
       "type": "info",
       "subtype": "string",
-      "display": {
-        "generic_type": "FLAP_STATE"
-      },
-      "isVisible": 0,
-      "isHistorized": 0,
-      "logicalId": "status"
+      "logicalId": "source"
     },
     {
-      "name": "Définir Statut",
-      "type": "action",
-      "subtype": "select",
-      "display": {
-        "generic_type": "FLAP_STATUS",
-        "forceReturnLineBefore": 1
-      },
-      "configuration" : {
-        "action" : "move",
-        "listValue" : "open|Ouvert;close|Fermé"
-      },
-      "isVisible": 0,
-      "logicalId": "status-set"
+      "name": "Titre",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "title"
     },
     {
-      "name": "Ouvrir",
-      "type": "action",
-      "subtype": "other",
-      "display": {
-        "icon": "<i class=\"fa fa-arrow-up\"><\/i>",
-        "generic_type": "FLAP_UP",
-        "forceReturnLineBefore": 1
-      },
-      "configuration" : {
-        "action" : "move",
-        "listValue" : "100"
-      },
-      "isVisible": 1,
-      "logicalId": "status-open"
+      "name": "Description",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "description"
     },
     {
-      "name": "Fermer",
-      "type": "action",
-      "subtype": "other",
-      "display": {
-        "icon": "<i class=\"fa fa-arrow-down\"><\/i>",
-        "generic_type": "FLAP_DOWN"
-      },
-      "configuration" : {
-        "action" : "move",
-        "value" : "0"
-      },
-      "isVisible": 1,
-      "logicalId": "status-close"
+      "name": "URL",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "url"
     },
     {
-      "name": "Arrêter",
-      "type": "action",
-      "subtype": "other",
-      "display": {
-        "icon": "<i class=\"fa fa-stop\"><\/i>",
-        "generic_type": "FLAP_STOP"
-      },
-      "configuration" : {
-        "action" : "stop",
-        "value" : "0"
-      },
-      "isVisible": 1,
-      "logicalId": "status-stop"
+      "name": "URL Image",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "urlToImage"
     },
     {
-      "name": "Identifier",
-      "type": "action",
-      "subtype": "other",
-      "display": {
-        "generic_type": "DONT"
-      },
-      "configuration" : {
-        "action" : "wink"
-      },
-      "isVisible": 0,
-      "logicalId": "wink"
+      "name": "Contenu",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "content"
     },
     {
       "name": "Rafraichir",

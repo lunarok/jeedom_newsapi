@@ -74,7 +74,7 @@ class newsapi extends eqLogic {
 		$this->getInfos($this->getOptions());
 	}
 
-	public static function getInfos($_options) {
+	public function getInfos($_options) {
 		$url = 'https://newsapi.org/v2/' . $this->getConfiguration('type') . '?apiKey=' . $this->getConfiguration('api');
 		foreach ($_options as $key => $value) {
 			$url .= '&' . $key . '=' . $value;
