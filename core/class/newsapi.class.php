@@ -93,6 +93,15 @@ class newsapi extends eqLogic {
     $request_http = new com_http($url);
 		$data = $request_http->exec(30);
     $data = json_decode($data,true);
+		if ($data["status"] != 'ok') {
+			return;
+		}
+		$this->checkAndUpdateCmd('source', $data["articles"]0["source"]["name"]);
+		$this->checkAndUpdateCmd('title', $data["articles"]0["title"]);
+		$this->checkAndUpdateCmd('description', $data["articles"]0["description"]);
+		$this->checkAndUpdateCmd('url', $data["articles"]0["url"]);
+		$this->checkAndUpdateCmd('urlToImage', $data["articles"]0["urlToImage"]);
+		$this->checkAndUpdateCmd('content', $data["articles"]0["content"]);
 	}
 
 }
