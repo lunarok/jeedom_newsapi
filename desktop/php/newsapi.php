@@ -100,9 +100,16 @@ $eqLogics = eqLogic::byType('newsapi');
               </div>
             </div>
 
+            <div class="form-group" id="country">
+              <label class="col-sm-3 control-label">{{Clef API}}</label>
+              <div class="col-sm-8">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="api" placeholder="{{Clef API}}"/>
+              </div>
+            </div>
+
             <div class="form-group">
-							<label class="col-sm-2 control-label">{{Type}}</label>
-							<div class="col-sm-3">
+							<label class="col-sm-3 control-label">{{Type}}</label>
+							<div class="col-sm-8">
 								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="type" id="type">
 									<option value="top-headlines" selected>Gros Titres</option>
 									<option value="everything">Toutes News</option>
@@ -111,14 +118,14 @@ $eqLogics = eqLogic::byType('newsapi');
 						</div>
 
             <div class="form-group" id="country">
-              <label class="col-sm-3 control-label">{{Pays/Langue}}</label>
+              <label class="col-sm-3 control-label">{{Pays}}</label>
               <div class="col-sm-8">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="country" placeholder="{{Le code international à 2 lettres du Pays}}"/>
               </div>
             </div>
 
             <div class="form-group" id="language">
-              <label class="col-sm-3 control-label">{{Pays/Langue}}</label>
+              <label class="col-sm-3 control-label">{{Langue}}</label>
               <div class="col-sm-8">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="country" placeholder="{{Le code international à 2 lettres du Pays}}"/>
               </div>
@@ -150,28 +157,28 @@ $eqLogics = eqLogic::byType('newsapi');
             <div class="form-group" id="keyword">
               <label class="col-sm-3 control-label">{{Mot Clef}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="q" placeholder="{{Exemple : domotique}}"/>"
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="q" placeholder="{{Exemple : domotique}}"/>
               </div>
             </div>
 
             <div class="form-group" id="domains">
               <label class="col-sm-3 control-label">{{Domaines}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="domains" placeholder="{{Exemple : techcrunch.com}}"/>"
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="domains" placeholder="{{Exemple : techcrunch.com}}"/>
               </div>
             </div>
 
             <div class="form-group" id="excludeDomains">
               <label class="col-sm-3 control-label">{{Domaines Exclus}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="excludeDomains" placeholder="{{Exemple : techcrunch.com}}"/>"
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="excludeDomains" placeholder="{{Exemple : techcrunch.com}}"/>
               </div>
             </div>
 
             <div class="form-group" id="sortBy">
               <label class="col-sm-3 control-label">{{Classement Par}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="sortBy" placeholder="{{Exemple : relevancy, popularity, publishedAt}}"/>"
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="sortBy" placeholder="{{Exemple : relevancy, popularity, publishedAt}}"/>
               </div>
             </div>
 

@@ -36,6 +36,10 @@ function typefieldChange(){
   }
 }
 
+$( "#type" ).change(function(){
+  setTimeout(typefieldChange,100);
+});
+
 $("#table_cmd").delegate(".listEquipementInfo", 'click', function() {
     var el = $(this);
     jeedom.cmd.getSelectModal({cmd: {type: 'info'}}, function(result) {
