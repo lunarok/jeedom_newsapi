@@ -48,6 +48,17 @@
       },
       "isVisible": 1,
       "logicalId": "refresh"
+    },
+    {
+      "name": "Rafraichir avec options",
+      "type": "action",
+      "subtype": "message",
+      "display": {
+        "generic_type": "DONT",
+        "title_placeholder": "Message",
+        "message_disable" : 1
+      },
+      "logicalId": "options"
     }
   ]
 }

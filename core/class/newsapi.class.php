@@ -21,7 +21,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class newsapi extends eqLogic {
 
-	public static function cron5() {
+	public static function cron30() {
 		$eqLogics = eqLogic::byType('newsapi', true);
 		foreach ($eqLogics as $eqLogic) {
 			$eqLogic->refresh();
@@ -59,14 +59,25 @@ class newsapi extends eqLogic {
 	}
 
 	public function postAjax() {
-		$this->loadCmdFromConf($this->getConfiguration('type'));
+		$this->loadCmdFromConf('newsapi');
 	}
 
 	public function getOptions() {
-		$options['country'] = $this->getConfiguration('country');
-		$options['category'] = $this->getConfiguration('category');
-		$options['sources'] = $this->getConfiguration('sources');
 		$options['q'] = $this->getConfiguration('q');
+		if ($this->getConfiguration('type') == 'top-headlines') {
+			$options['country'] = $this->getConfiguration('country');
+			if ($this->getConfiguration('category') != "none") {
+				$options['category'] = $this->getConfiguration('category');
+			} else {
+				$options['sources'] = $this->getConfiguration('sources');
+			}
+		} else {
+			$options['languages'] = $this->getConfiguration('languages');
+			$options['sources'] = $this->getConfiguration('sources');
+			$options['domains'] = $this->getConfiguration('domains');
+			$options['excludeDomains'] = $this->getConfiguration('excludeDomains');
+			$options['sortBy'] = $this->getConfiguration('sortBy');
+		}
 		return $options;
 	}
 

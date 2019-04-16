@@ -14,21 +14,27 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$("#bt_addnewsapiInfo").on('click', function(event) {
-    var _cmd = {type: 'info'};
-    addCmdToTable(_cmd);
-});
-
-$("#bt_addnewsapiAction").on('click', function(event) {
-    var _cmd = {type: 'action'};
-    addCmdToTable(_cmd);
-});
-
-
-/*
-$('#table_cmd tbody').delegate('tr .remove', 'click', function(event) {
-    $(this).closest('tr').remove();
-});*/
+function typefieldChange(){
+	if ($('#type').value() == 'top-headlines') {
+		$('#country').show();
+		$('#category').show();
+    $('#sources').show();
+    $('#keyword').show();
+    $('#language').hide();
+    $('#domains').hide();
+    $('#excludeDomains').hide();
+    $('#sortBy').hide();
+  } else {
+    $('#country').hide();
+		$('#category').hide();
+    $('#sources').show();
+    $('#keyword').show();
+    $('#language').show();
+    $('#domains').show();
+    $('#excludeDomains').show();
+    $('#sortBy').show();
+  }
+}
 
 $("#table_cmd").delegate(".listEquipementInfo", 'click', function() {
     var el = $(this);
