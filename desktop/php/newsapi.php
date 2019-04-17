@@ -117,7 +117,7 @@ $eqLogics = eqLogic::byType('newsapi');
 							</div>
 						</div>
 
-            <div class="form-group" id="sortBy">
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{Numéro de la News à récupérer}}</label>
               <div class="col-sm-8">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="number" placeholder="{{Exemple : 1 pour la plus récente, 2 pour la seconde ...}}"/>
