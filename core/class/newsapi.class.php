@@ -62,6 +62,28 @@ class newsapi extends eqLogic {
 		$this->loadCmdFromConf('newsapi');
 	}
 
+	public function preUpdate() {
+		if ($this->getConfiguration('api') == '') {
+			throw new Exception(__('Vous devez remplir le champ API',__FILE__));
+			return;
+		}
+		if ($this->getConfiguration('number') == '') {
+			throw new Exception(__('Vous devez remplir le numéro de la news',__FILE__));
+			return;
+		}
+		if ($this->getConfiguration('type') == 'top-headlines') {
+			if ($this->getConfiguration('country') == '') {
+				throw new Exception(__('Vous devez remplir le champ pays',__FILE__));
+				return;
+			}
+		} else {
+			if ($this->getConfiguration('language') == '') {
+				throw new Exception(__('Vous devez remplir le champ langue',__FILE__));
+				return;
+			}
+		}
+	}
+
 	public function getOptions() {
 		$options['q'] = $this->getConfiguration('q');
 		if ($this->getConfiguration('type') == 'top-headlines') {
@@ -90,18 +112,19 @@ class newsapi extends eqLogic {
 		foreach ($_options as $key => $value) {
 			$url .= '&' . $key . '=' . $value;
 		}
-    $request_http = new com_http($url);
+		$request_http = new com_http($url);
 		$data = $request_http->exec(30);
-    $data = json_decode($data,true);
+		$data = json_decode($data,true);
 		if ($data["status"] != 'ok') {
 			return;
 		}
-		$this->checkAndUpdateCmd('source', $data["articles"][0]["source"]["name"]);
-		$this->checkAndUpdateCmd('title', $data["articles"][0]["title"]);
-		$this->checkAndUpdateCmd('description', $data["articles"][0]["description"]);
-		$this->checkAndUpdateCmd('url', $data["articles"][0]["url"]);
-		$this->checkAndUpdateCmd('urlToImage', $data["articles"][0]["urlToImage"]);
-		$this->checkAndUpdateCmd('content', $data["articles"][0]["content"]);
+		$number = $this->getConfiguration('type') - 1;
+		$this->checkAndUpdateCmd('source', $data["articles"][$number]["source"]["name"]);
+		$this->checkAndUpdateCmd('title', $data["articles"][$number]["title"]);
+		$this->checkAndUpdateCmd('description', $data["articles"][$number]["description"]);
+		$this->checkAndUpdateCmd('url', $data["articles"][$number]["url"]);
+		$this->checkAndUpdateCmd('urlToImage', $data["articles"][$number]["urlToImage"]);
+		$this->checkAndUpdateCmd('content', $data["articles"][$number]["content"]);
 	}
 
 }
