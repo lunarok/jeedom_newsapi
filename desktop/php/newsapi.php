@@ -101,7 +101,7 @@ $eqLogics = eqLogic::byType('newsapi');
             </div>
 
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{Clef API}}</label>
+              <label class="col-sm-3 control-label"><a href='https://newsapi.org/register' target="_blank">{{Clef API}}</a></label>
               <div class="col-sm-8">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="api" placeholder="{{Clef API}}"/>
               </div>
