@@ -127,7 +127,7 @@ $eqLogics = eqLogic::byType('newsapi');
             <div class="form-group" id="language">
               <label class="col-sm-3 control-label">{{Langue}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="country" placeholder="{{Le code international à 2 lettres du Pays}}"/>
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="languages" placeholder="{{Le code international à 2 lettres du Pays}}"/>
               </div>
             </div>
 
