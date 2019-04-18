@@ -78,8 +78,6 @@ function addCmdToTable(_cmd) {
 			tr += '<input class="cmdAttr form-control type input-sm" data-l1key="type" value="info" disabled style="margin-bottom : 5px;" />';
 			tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
         tr += '</td><td>';
-        tr += '<textarea class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="value" style="height : 33px;" ' + disabled + ' placeholder="{{Valeur}}" readonly=true></textarea>';
-        tr += '</td><td>';
         tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
         tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
         tr += '<span><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary" /> {{Inverser}}<br/></span>';
@@ -123,11 +121,6 @@ function addCmdToTable(_cmd) {
         tr += '<td>';
         tr += '<input class="cmdAttr form-control type input-sm" data-l1key="type" value="action" disabled style="margin-bottom : 5px;" />';
         tr += '<span class="subType" subType="' + init(_cmd.subType) + '" style=""></span>';
-        //tr += '<input class="cmdAttr" data-l1key="configuration" data-l2key="virtualAction" value="1" style="display:none;" >';
-        tr += '</td>';
-         tr += '<td>';
-		tr += '<span class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></span>';
-		tr +='</select></span>';
         tr += '</td><td>';
         tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
         tr += '</td>';
