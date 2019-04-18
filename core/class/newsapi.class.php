@@ -131,6 +131,7 @@ class newsapi extends eqLogic {
 
 class newsapiCmd extends cmd {
 	public function execute($_options = null) {
+		$eqLogic = $this->getEqLogic();
 		if ($this->getLogicalId() == 'refresh') {
 			$eqLogic->refresh();
 		}
