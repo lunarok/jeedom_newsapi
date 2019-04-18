@@ -118,7 +118,7 @@ class newsapi extends eqLogic {
 		if ($data["status"] != 'ok') {
 			return;
 		}
-		$number = $this->getConfiguration('type') - 1;
+		$number = intval(this->getConfiguration('type')) - 1;
 		$this->checkAndUpdateCmd('source', $data["articles"][$number]["source"]["name"]);
 		$this->checkAndUpdateCmd('title', $data["articles"][$number]["title"]);
 		$this->checkAndUpdateCmd('description', $data["articles"][$number]["description"]);
