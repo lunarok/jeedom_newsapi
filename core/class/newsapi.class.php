@@ -112,14 +112,14 @@ class newsapi extends eqLogic {
 		foreach ($_options as $key => $value) {
 			$url .= '&' . $key . '=' . $value;
 		}
+		$number = intval(this->getConfiguration('type')) - 1;
+		log::add('newsapi', 'debug', 'Ask ' . $url . ' for article ' . $number);
 		$request_http = new com_http($url);
 		$data = $request_http->exec(30);
 		$data = json_decode($data,true);
 		if ($data["status"] != 'ok') {
 			return;
 		}
-		$number = intval(this->getConfiguration('type')) - 1;
-		log::add('newsapi', 'debug', 'Ask ' . $url . ' for article ' . $number);
 		$this->checkAndUpdateCmd('source', $data["articles"][$number]["source"]["name"]);
 		$this->checkAndUpdateCmd('title', $data["articles"][$number]["title"]);
 		$this->checkAndUpdateCmd('description', $data["articles"][$number]["description"]);
