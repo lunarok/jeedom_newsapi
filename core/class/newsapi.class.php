@@ -119,6 +119,7 @@ class newsapi extends eqLogic {
 			return;
 		}
 		$number = intval(this->getConfiguration('type')) - 1;
+		log::add('newsapi', 'debug', 'Ask ' . $url . ' for article ' . $number);
 		$this->checkAndUpdateCmd('source', $data["articles"][$number]["source"]["name"]);
 		$this->checkAndUpdateCmd('title', $data["articles"][$number]["title"]);
 		$this->checkAndUpdateCmd('description', $data["articles"][$number]["description"]);
