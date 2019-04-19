@@ -110,6 +110,7 @@ class newsapi extends eqLogic {
 			return;
 		}
 		$this->getInfos($this->getOptions());
+		$this->refreshWidget();
 	}
 
 	public function getInfos($_options) {
