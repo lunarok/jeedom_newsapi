@@ -61,6 +61,7 @@ class newsapi extends eqLogic {
 
 	public function postAjax() {
 		$this->loadCmdFromConf('newsapi');
+		$this->refresh();
 	}
 
 	public function preUpdate() {
