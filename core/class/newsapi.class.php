@@ -152,7 +152,7 @@ class newsapi extends eqLogic {
       }
     }
 		$templatename = 'newsapi';
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $templatename, 'vigilancemeteo')));
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $templatename, 'newsapi')));
 	}
 
 }
