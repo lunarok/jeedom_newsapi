@@ -116,11 +116,11 @@ class newsapi extends eqLogic {
 	public function getInfos($_options) {
 		$url = 'https://newsapi.org/v2/' . $this->getConfiguration('type') . '?apiKey=' . $this->getConfiguration('api');
 		foreach ($_options as $key => $value) {
-			$url .= '&' . $key . '=' . $value;
+			$url .= '&' . $key . '=' . urlencode($value);
 		}
 		$number = intval($this->getConfiguration('number')) - 1;
 		log::add('newsapi', 'debug', 'Ask ' . $url . ' for article ' . $number);
-		$request_http = new com_http(urlencode($url));
+		$request_http = new com_http($url);
 		$data = $request_http->exec(30);
 		$data = json_decode($data,true);
 		if ($data["status"] != 'ok') {
