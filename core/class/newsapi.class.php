@@ -20,6 +20,7 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class newsapi extends eqLogic {
+	public static $_widgetPossibility = array('custom' => true);
 
 	public static function cron30() {
 		$eqLogics = eqLogic::byType('newsapi', true);
@@ -126,6 +127,31 @@ class newsapi extends eqLogic {
 		$this->checkAndUpdateCmd('url', $data["articles"][$number]["url"]);
 		$this->checkAndUpdateCmd('urlToImage', $data["articles"][$number]["urlToImage"]);
 		$this->checkAndUpdateCmd('content', $data["articles"][$number]["content"]);
+	}
+
+	public function toHtml($_version = 'dashboard') {
+		$replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
+		}
+		$version = jeedom::versionAlias($_version);
+		if ($this->getDisplay('hideOn' . $version) == 1) {
+			return '';
+		}
+
+		$cmd = vigilancemeteoCmd::byEqLogicIdAndLogicalId($this->getId(),'risk');
+		$replace['#seisme_history#'] = '';
+		$replace['#seisme#'] = $cmd->getConfiguration('value');
+		$replace['#seisme_id#'] = $cmd->getId();
+
+		$replace['#seisme_collect#'] = $cmd->getCollectDate();
+		if ($cmd->getIsHistorized() == 1) {
+			$replace['#seisme_history#'] = 'history cursor';
+		}
+
+		$templatename = 'newsapi';
+
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $templatename, 'vigilancemeteo')));
 	}
 
 }
