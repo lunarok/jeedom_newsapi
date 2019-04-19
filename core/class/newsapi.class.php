@@ -120,7 +120,7 @@ class newsapi extends eqLogic {
 		}
 		$number = intval($this->getConfiguration('number')) - 1;
 		log::add('newsapi', 'debug', 'Ask ' . $url . ' for article ' . $number);
-		$request_http = new com_http($url);
+		$request_http = new com_http(urlencode($url));
 		$data = $request_http->exec(30);
 		$data = json_decode($data,true);
 		if ($data["status"] != 'ok') {
