@@ -106,6 +106,9 @@ class newsapi extends eqLogic {
 	}
 
 	public function refresh() {
+		if ($this->getConfiguration('api') == '' || $this->getConfiguration('number') == '' || $this->getConfiguration('language') == '') {
+			return;
+		}
 		$this->getInfos($this->getOptions());
 	}
 
