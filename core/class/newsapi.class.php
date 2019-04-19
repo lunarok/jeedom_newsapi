@@ -138,19 +138,16 @@ class newsapi extends eqLogic {
 		if ($this->getDisplay('hideOn' . $version) == 1) {
 			return '';
 		}
-
-		$cmd = vigilancemeteoCmd::byEqLogicIdAndLogicalId($this->getId(),'risk');
-		$replace['#seisme_history#'] = '';
-		$replace['#seisme#'] = $cmd->getConfiguration('value');
-		$replace['#seisme_id#'] = $cmd->getId();
-
-		$replace['#seisme_collect#'] = $cmd->getCollectDate();
-		if ($cmd->getIsHistorized() == 1) {
-			$replace['#seisme_history#'] = 'history cursor';
-		}
-
+		foreach ($this->getCmd('info') as $cmd) {
+      $replace['#' . $cmd->getLogicalId() . '_history#'] = '';
+      $replace['#' . $cmd->getLogicalId() . '_id#'] = $cmd->getId();
+      $replace['#' . $cmd->getLogicalId() . '#'] = $cmd->execCmd();
+      $replace['#' . $cmd->getLogicalId() . '_collect#'] = $cmd->getCollectDate();
+      if ($cmd->getIsHistorized() == 1) {
+        $replace['#' . $cmd->getLogicalId() . '_history#'] = 'history cursor';
+      }
+    }
 		$templatename = 'newsapi';
-
 		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $templatename, 'vigilancemeteo')));
 	}
 
