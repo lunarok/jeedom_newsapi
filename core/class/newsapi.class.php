@@ -79,7 +79,7 @@ class newsapi extends eqLogic {
 				return;
 			}
 		} else {
-			if ($this->getConfiguration('language') == '') {
+			if ($this->getConfiguration('languages') == '') {
 				throw new Exception(__('Vous devez remplir le champ langue',__FILE__));
 				return;
 			}
