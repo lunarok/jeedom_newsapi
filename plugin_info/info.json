@@ -4,7 +4,7 @@
 	"description" : "Ce plugin permet de récupérer les dernières informations depuis newsapi.org.",
 	"licence" : "AGPL",
 	"author" : "lunarok",
-	"require" : "3.2",
+	"require" : "3.3.24",
 	"category" : "communication",
 	"language" : ["fr_FR","en_US"],
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
